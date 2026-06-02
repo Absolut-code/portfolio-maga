@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html class="dark" lang="ru">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>PORTFOLIO / RAW STUDIO</title>
+    
+    <!-- Google Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Space+Mono:wght@400;700&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    
+    <!-- Tailwind CSS with Forms and Container Queries Plugins -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-fixed-variant": "#3c4d00",
+                        "on-surface-variant": "#c4c9ac",
+                        "primary-fixed-dim": "#abd600",
+                        "error-container": "#93000a",
+                        "outline": "#8e9379",
+                        "background": "#131313",
+                        "surface-container-low": "#1c1b1b",
+                        "tertiary-container": "#d2e5f5",
+                        "on-secondary-fixed-variant": "#454747",
+                        "on-secondary": "#2f3131",
+                        "inverse-surface": "#e5e2e1",
+                        "surface-container-lowest": "#0e0e0e",
+                        "surface-bright": "#3a3939",
+                        "surface-variant": "#353534",
+                        "on-primary-container": "#556d00",
+                        "on-secondary-container": "#b4b5b5",
+                        "on-primary": "#283500",
+                        "on-error": "#690005",
+                        "surface": "#131313",
+                        "primary": "#ffffff",
+                        "inverse-primary": "#506600",
+                        "error": "#ffb4ab",
+                        "on-tertiary-container": "#556774",
+                        "tertiary-fixed": "#d2e5f5",
+                        "secondary-fixed-dim": "#c6c6c7",
+                        "on-primary-fixed": "#161e00",
+                        "surface-container": "#201f1f",
+                        "surface-dim": "#131313",
+                        "on-tertiary-fixed-variant": "#374956",
+                        "on-tertiary-fixed": "#0b1d29",
+                        "outline-variant": "#444933",
+                        "surface-container-highest": "#353534",
+                        "tertiary-fixed-dim": "#b6c9d8",
+                        "primary-container": "#c3f400",
+                        "on-background": "#e5e2e1",
+                        "surface-tint": "#abd600",
+                        "on-error-container": "#ffdad6",
+                        "inverse-on-surface": "#313030",
+                        "secondary": "#c6c6c7",
+                        "surface-container-high": "#2a2a2a",
+                        "on-surface": "#e5e2e1",
+                        "on-secondary-fixed": "#1a1c1c",
+                        "secondary-container": "#454747",
+                        "secondary-fixed": "#e2e2e2",
+                        "on-tertiary": "#21323e",
+                        "tertiary": "#ffffff",
+                        "primary-fixed": "#c3f400"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-mobile": "24px",
+                        "unit": "8px",
+                        "border-width-thick": "4px",
+                        "gutter": "0px",
+                        "margin-desktop": "48px",
+                        "border-width-thin": "1px"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["Syne"],
+                        "label-sm": ["Space Mono"],
+                        "body-lg": ["Space Mono"],
+                        "display-xl": ["Syne"],
+                        "headline-lg": ["Syne"],
+                        "label-bold": ["Space Mono"],
+                        "display-lg": ["Syne"],
+                        "body-md": ["Space Mono"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["32px", {"lineHeight": "36px", "fontWeight": "700"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "display-xl": ["120px", {"lineHeight": "110px", "letterSpacing": "-0.04em", "fontWeight": "800"}],
+                        "headline-lg": ["48px", {"lineHeight": "52px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                        "label-bold": ["14px", {"lineHeight": "20px", "fontWeight": "700"}],
+                        "display-lg": ["80px", {"lineHeight": "80px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+    
+    <style>
+        .vertical-text {
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 700, 'GRAD' 0, 'opsz' 48;
+        }
+        body {
+            background-color: #131313;
+            color: #ffffff;
+            overflow-x: hidden;
+            cursor: crosshair;
+        }
+        /* Custom scrollbar for brutalist feel */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #131313;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #ffffff;
+        }
+        .invert-on-hover:hover {
+            filter: invert(1);
+        }
+        .text-outline {
+            -webkit-text-stroke: 1px #ffffff;
+            color: transparent;
+        }
+        .project-card:hover .project-image {
+            filter: grayscale(0%) scale(1.05);
+        }
+        .project-card:hover .project-title {
+            color: #c3f400; /* Primary Fixed / Neon Green */
+            transform: translateX(10px);
+        }
+        .stark-border-top { border-top-width: 4px; }
+        .stark-border-bottom { border-bottom-width: 4px; }
+        .stark-border-left { border-left-width: 4px; }
+        .stark-border-right { border-right-width: 4px; }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Top Navigation Bar -->
+    <nav class="fixed top-0 left-0 w-full flex justify-between items-center px-margin-mobile md:px-margin-desktop py-unit bg-background border-b-4 border-primary z-50">
+        <!-- Large English Logo/Title -->
+        <div class="font-headline-lg text-headline-lg font-bold tracking-tighter text-primary">PORTFOLIO/24</div>
+        
+        <!-- Small Russian Navigation Links -->
+        <div class="hidden md:flex gap-margin-mobile items-center">
+            <a class="font-label-bold text-label-bold uppercase tracking-tighter text-on-surface-variant hover:bg-primary hover:text-background transition-colors duration-200 px-2 py-1" href="#works">РАБОТЫ</a>
+            <a class="font-label-bold text-label-bold uppercase tracking-tighter text-on-surface-variant hover:bg-primary hover:text-background transition-colors duration-200 px-2 py-1" href="#about">ОБО МНЕ</a>
+            <a class="font-label-bold text-label-bold uppercase tracking-tighter text-on-surface-variant hover:bg-primary hover:text-background transition-colors duration-200 px-2 py-1" href="#contact">КОНТАКТЫ</a>
+            <button class="bg-primary text-background font-label-bold text-label-bold px-6 py-2 border-none active:bg-primary-fixed uppercase transition-all" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">НАЙМ</button>
+        </div>
+        <div class="md:hidden">
+            <span class="material-symbols-outlined text-primary cursor-pointer">menu</span>
+        </div>
+    </nav>
+
+    <!-- Main Content Canvas -->
+    <main class="pt-24 min-h-screen">
+
+        <!-- 1. Hero Section -->
+        <section id="hero" class="grid grid-cols-1 md:grid-cols-12 gap-0 border-b-4 border-primary bg-primary-container min-h-[calc(100vh-6rem)]">
+            <!-- Text Content Area -->
+            <div class="md:col-span-8 flex flex-col justify-center p-margin-mobile md:p-margin-desktop border-r-0 md:border-r-4 border-primary">
+                <!-- Large English Title -->
+                <h1 class="font-display-lg md:font-display-xl text-display-lg md:text-display-xl text-on-primary-container uppercase break-words leading-none mb-12 interactive-tracking">
+                    I DESIGN THE UNFORGETTABLE
+                </h1>
+                <!-- Small Russian Subtitle -->
+                <div class="max-w-2xl">
+                    <p class="font-body-lg text-body-lg text-on-primary-container/80 mb-8 border-l-4 border-on-primary-container pl-6 py-2">
+                        Раздвигая границы на стыке грубого брутализма и высокотехнологичного цифрового мастерства.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <button class="px-8 py-4 bg-background text-primary font-label-bold text-label-bold uppercase border-2 border-background hover:bg-primary hover:text-background transition-all" onclick="document.getElementById('works').scrollIntoView({behavior: 'smooth'})">
+                            СМОТРЕТЬ ПОРТФОЛИО
+                        </button>
+                        <button class="px-8 py-4 border-4 border-on-primary-container text-on-primary-container font-label-bold text-label-bold uppercase hover:bg-on-primary-container hover:text-primary-container transition-all" onclick="document.getElementById('about').scrollIntoView({behavior: 'smooth'})">
+                            МЕТОДОЛОГИЯ
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- Visual/Graphic Area -->
+            <div class="md:col-span-4 bg-background relative overflow-hidden group">
+                <img alt="Hero Visual" class="w-full h-full object-cover grayscale transition-all duration-700 group-hover:grayscale-0" data-alt="A high-contrast, avant-garde digital sculpture in a void-like environment. The object features razor-sharp metallic edges and deep shadows, illuminated by a single piercing neon green light source." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAjHrxT9E495BCcD1bOjjGEddtvmVTu6vO0QKpMRJjIjSWBktQs_PfyH8WCjQLJHDThEjbRnBwBrlvlnH7Vcc3ksFolgaosK4jcCLEhCU1QB11VlEECqqx_4eWZ2KswVksvjaKnsLG8AGd_n3pxPZ76r-2gcnG17uPlJro6ISSZtdy1GX7i9tLcZl34izd-sIKOlMp9kpkX56OhB_T_BZfc-y4qYFt4LeaevbmqpKmLsfgzwe7fHJvime4C7B6epL_37rvlXRCQ-6j0"/>
+                <div class="absolute inset-0 bg-primary-container/20 mix-blend-multiply pointer-events-none"></div>
+                <div class="absolute bottom-0 left-0 p-margin-mobile md:p-margin-desktop">
+                    <span class="font-label-sm text-label-sm text-primary uppercase bg-background px-2 py-1">V.04 / 2024</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sub-Info Row (Small Russian Labels) -->
+        <section class="grid grid-cols-1 md:grid-cols-3 border-b-4 border-primary">
+            <div class="p-margin-mobile md:p-unit border-b-4 md:border-b-0 md:border-r-4 border-primary flex items-center justify-between">
+                <span class="font-label-bold text-label-bold text-primary uppercase">СТРАТЕГИЯ</span>
+                <span class="material-symbols-outlined text-primary">data_exploration</span>
+            </div>
+            <div class="p-margin-mobile md:p-unit border-b-4 md:border-b-0 md:border-r-4 border-primary flex items-center justify-between">
+                <span class="font-label-bold text-label-bold text-primary uppercase">ИНТЕРФЕЙС</span>
+                <span class="material-symbols-outlined text-primary">grid_view</span>
+            </div>
+            <div class="p-margin-mobile md:p-unit flex items-center justify-between">
+                <span class="font-label-bold text-label-bold text-primary uppercase">ОПЫТ</span>
+                <span class="material-symbols-outlined text-primary">bolt</span>
+            </div>
+        </section>
+
+        <!-- Scroll Indicator Section (Small Russian Text) -->
+        <div class="flex justify-between items-end p-margin-mobile md:p-margin-desktop bg-background border-b-4 border-primary">
+            <div class="hidden md:block">
+                <p class="font-label-sm text-label-sm text-on-surface-variant uppercase max-w-[250px]">
+                    Прокрутите, чтобы исследовать измерение высокоэффективной эстетики.
+                </p>
+            </div>
+            <div class="w-24 h-24 border-4 border-primary flex items-center justify-center cursor-pointer group hover:bg-primary transition-all duration-300">
+                <span class="material-symbols-outlined text-primary group-hover:text-background text-[48px] animate-bounce" style="font-variation-settings: 'wght' 700;">
+                    arrow_downward
+                </span>
+            </div>
+        </div>
+
+        <!-- 2. Works Showcase Section -->
+        <section id="works" class="px-margin-desktop py-margin-desktop border-b-4 border-primary grid grid-cols-12 gap-gutter">
+            <div class="col-span-12 md:col-span-8">
+                <!-- Large English Title -->
+                <h1 class="font-display-lg text-display-lg-mobile md:text-display-lg uppercase mb-4">SELECTED WORKS_</h1>
+            </div>
+            <div class="col-span-12 md:col-span-4 flex items-end justify-end">
+                <!-- Small Russian Sidebar -->
+                <p class="font-body-md text-body-md text-on-surface-variant max-w-xs text-right">
+                    ЭКСПЕРИМЕНТАЛЬНОЕ ЦИФРОВОЕ ИСКУССТВО НА ПЕРЕСЕЧЕНИИ ГРУБОГО БРУТАЛИЗМА И ВЫСОКОЙ МОДЫ.
+                </p>
+            </div>
+        </section>
+
+        <!-- Works Grid -->
+        <section class="grid grid-cols-1 md:grid-cols-12 gap-gutter border-b-4 border-primary">
+            <!-- Project 1: GLITCH AESTHETIC -->
+            <div class="col-span-12 border-b-4 border-primary md:border-b-0 md:border-r-4 border-primary project-card relative overflow-hidden group cursor-pointer">
+                <div class="grid grid-cols-1 md:grid-cols-12 h-full">
+                    <div class="col-span-12 md:col-span-7 relative overflow-hidden bg-surface-container-highest">
+                        <img class="project-image w-full h-[614px] object-cover grayscale transition-all duration-500" data-alt="Complex digital artwork with glitch patterns." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAbtSRb50wogzcAgVzgTspaebWDnqsgr4S6ZSut0y7v8NIG5tIufwZDbokaoYLsPJB1hR17ubeMkyGqXQGKnxKgg4t-i1NNidjOWIYDucJFcbEt4CxfQT0SmvY736qLXpRhY2LOsDaF0bqMeav6yLTpYyHnsi-cJdEHxgbAjMkQ8jQOMrvhJRJGy2zA8tZBhNprsj9UB9C53q3CpblIjFBp2WblNqtgaj2jAvPz7TzeQ6gDMgy-nd9yzJSscOcF7h6kQUP7wO5s8iS0"/>
+                    </div>
+                    <div class="col-span-12 md:col-span-5 p-margin-desktop flex flex-col justify-between items-start bg-background">
+                        <div>
+                            <!-- Small Russian Tag -->
+                            <span class="font-label-sm text-label-sm text-primary-fixed mb-4 block">01 / БРЕНДИНГ</span>
+                            <!-- Large English Project Title -->
+                            <h2 class="project-title font-display-xl text-[60px] md:text-display-xl uppercase transition-transform duration-300 -ml-16 md:-ml-32 z-10 relative text-primary">
+                                GLITCH AESTHETIC
+                            </h2>
+                        </div>
+                        <!-- Small Russian Action Button -->
+                        <div class="flex items-center gap-4 group/btn">
+                            <span class="font-label-bold text-label-bold">СМОТРЕТЬ КЕЙС</span>
+                            <span class="material-symbols-outlined text-primary-fixed group-hover/btn:translate-x-2 transition-transform">arrow_forward</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Project 2: RAW BRUTALISM -->
+            <div class="col-span-12 border-b-4 border-primary md:border-b-0 project-card relative overflow-hidden group cursor-pointer">
+                <div class="grid grid-cols-1 md:grid-cols-12 h-full">
+                    <div class="col-span-12 md:col-span-5 p-margin-desktop flex flex-col justify-between items-end bg-background order-2 md:order-1 border-r-0 md:border-r-4 border-primary">
+                        <div class="text-right w-full">
+                            <!-- Small Russian Tag -->
+                            <span class="font-label-sm text-label-sm text-primary-fixed mb-4 block">02 / ВЕБ-ДИЗАЙН</span>
+                            <!-- Large English Project Title -->
+                            <h2 class="project-title font-display-xl text-[60px] md:text-display-xl uppercase transition-transform duration-300 -mr-16 md:-mr-48 z-10 relative text-primary">
+                                RAW BRUTALISM
+                            </h2>
+                        </div>
+                        <!-- Small Russian Action Button -->
+                        <div class="flex items-center gap-4 group/btn">
+                            <span class="material-symbols-outlined text-primary-fixed group-hover/btn:-translate-x-2 transition-transform">arrow_back</span>
+                            <span class="font-label-bold text-label-bold">ИССЛЕДОВАТЬ ПРОЕКТ</span>
+                        </div>
+                    </div>
+                    <div class="col-span-12 md:col-span-7 relative overflow-hidden order-1 md:order-2 bg-surface-container-highest">
+                        <img class="project-image w-full h-[614px] object-cover grayscale transition-all duration-500" data-alt="Stark architectural photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAvXS2-bCEs6CjUVPGBvBG4pP6zz278ELvOQdNCpCnkWLpTsqm9c_2umF5A5QKQz1bhT_2U-ytSqPj5rXWniYlCE_vgzmz6nNwtABkT8ZmhZdmwatjA3IBQ6DMpclhiEIqpz99YMUynLa7iMD2BUeKRIvd5Xlw1ttRfZ1MSGVWwBLV40qzvbysXcKM2ygaitf4rSV_M8lrWXqWLiAH2RWyUbAoog8o0LOiWs0ZyV2xY_ARLaYUadw1IX1zsIdn_8-Ol8gUvKhHklEff"/>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Project 3: NEON OVERLOAD -->
+            <div class="col-span-12 project-card relative overflow-hidden group cursor-pointer border-t-4 border-primary">
+                <div class="grid grid-cols-1 md:grid-cols-12 h-full">
+                    <div class="col-span-12 md:col-span-8 relative overflow-hidden bg-surface-container-highest">
+                        <img class="project-image w-full h-[716px] object-cover grayscale transition-all duration-500" data-alt="High fashion laser light photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB5gXNBtLvgOGP6f7tgm6z1xnbOPyIKPOkG49Nd9drVvYqaV_AB_Cf4DreqCNOQEOmYRfMkDSMPZQ6jjDRTDo3r8b3cw-n578xr8q6ST2vTIY2VbRAa-dgxmfnQWJLPg9ojoYAlB7UWSQx-D1V58EaIfe-LOXs9RIcZmlKid6Bt36oXCcztqmwWTmCeY5SLijilocydRWqe_M-Q-KSqLmO4op8a0GyfeqcmJvrU342NVy54W90pgDfpxoRdaUVzvIPSsFqb2ao9iksE"/>
+                    </div>
+                    <div class="col-span-12 md:col-span-4 p-margin-desktop flex flex-col justify-center items-start bg-background border-l-0 md:border-l-4 border-primary">
+                        <div>
+                            <!-- Small Russian Tag -->
+                            <span class="font-label-sm text-label-sm text-primary-fixed mb-4 block">03 / НАПРАВЛЕНИЕ</span>
+                            <!-- Large English Project Title -->
+                            <h2 class="project-title font-display-xl text-[60px] md:text-headline-lg uppercase transition-transform duration-300 z-10 relative text-primary mb-8">
+                                NEON OVERLOAD
+                            </h2>
+                            <!-- Small Russian Description -->
+                            <p class="font-body-md text-body-md text-on-surface-variant mb-12">
+                                ГЛУБОКОЕ ПОГРУЖЕНИЕ В ЦВЕТОВУЮ НАСЫЩЕННОСТЬ И КИНЕТИЧЕСКУЮ ТИПОГРАФИКУ В ВИРТУАЛЬНЫХ ПРОСТРАНСТВАХ.
+                            </p>
+                        </div>
+                        <!-- Small Russian Action Button -->
+                        <button class="w-full py-4 border-2 border-primary hover:bg-primary hover:text-background transition-all font-label-bold text-label-bold">
+                            ЗАПУСТИТЬ АРХИВ
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Manifesto Section -->
+        <section class="px-margin-desktop py-margin-desktop bg-primary-fixed text-on-primary-fixed grid grid-cols-12 gap-gutter border-b-4 border-primary">
+            <div class="col-span-12 md:col-span-6">
+                <!-- Large English Title -->
+                <h3 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg uppercase tracking-tighter mb-8">WE REJECT SOFTNESS.</h3>
+            </div>
+            <!-- Small Russian Details -->
+            <div class="col-span-12 md:col-span-6 flex flex-col justify-end">
+                <div class="space-y-4 font-body-lg text-body-lg">
+                    <div class="flex justify-between border-b border-on-primary-fixed pb-2">
+                        <span>ТОЧНОСТЬ</span>
+                        <span>[100%]</span>
+                    </div>
+                    <div class="flex justify-between border-b border-on-primary-fixed pb-2">
+                        <span>ГРУБОСТЬ</span>
+                        <span>[ИСТИНА]</span>
+                    </div>
+                    <div class="flex justify-between border-b border-on-primary-fixed pb-2">
+                        <span>КОНТРАСТ</span>
+                        <span>МАКСИМУМ</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. About Section -->
+        <section id="about" class="grid grid-cols-12 w-full border-b-4 border-primary">
+            <!-- Left Column: Massive English Vertical Text -->
+            <div class="col-span-12 md:col-span-4 border-r-0 md:border-r-4 border-primary flex items-start justify-center py-margin-desktop overflow-hidden bg-background">
+                <h1 class="vertical-text font-display-xl text-display-xl rotate-180 uppercase select-none">
+                    WHO AM I?
+                </h1>
+            </div>
+            <!-- Right Column: Small Russian Bio & Image -->
+            <div class="col-span-12 md:col-span-8 flex flex-col">
+                <div class="p-margin-mobile md:p-margin-desktop border-b-4 border-primary">
+                    <p class="font-body-lg text-body-lg text-on-surface mb-12 max-w-3xl">
+                        Я МУЛЬТИДИСЦИПЛИНАРНЫЙ ТВОРЕЦ, РАБОТАЮЩИЙ НА СТЫКЕ ХАОСА И ТОЧНОСТИ. МОИ РАБОТЫ — ЭТО ОТКАЗ ОТ ГЛЯНЦА, ПРЕДСКАЗУЕМОСТИ И БЕЗОПАСНОСТИ. Я СОЗДАЮ ЦИФРОВОЙ ОПЫТ, ТРЕБУЮЩИЙ ВНИМАНИЯ ЧЕРЕЗ ГРУБУЮ ТИПОГРАФИКУ, ЖЕСТКИЕ КОНТРАСТЫ И БЕСКОМПРОМИССНОЕ ПРЕНЕБРЕЖЕНИЕ ТРАДИЦИОННЫМИ ПАТТЕРНАМИ ИНТЕРФЕЙСА.
+                    </p>
+                    <p class="font-body-lg text-body-lg text-on-surface mb-12 max-w-3xl">
+                        ПРАВИЛА — ЭТО ДОКУМЕНТАЦИЯ ПРОШЛОГО. ИННОВАЦИИ ТРЕБУЮТ МУЖЕСТВА, ЧТОБЫ ИХ РАЗРУШИТЬ. КАЖДЫЙ ПИКСЕЛЬ — ЭТО ВЫБОР; КАЖДАЯ ГРАНИЦА — ЭТО ЗАЯВЛЕНИЕ.
+                    </p>
+                    <div class="flex gap-4 flex-wrap">
+                        <span class="px-4 py-1 border border-primary font-label-sm text-label-sm uppercase">КРЕАТИВНОЕ НАПРАВЛЕНИЕ</span>
+                        <span class="px-4 py-1 border border-primary font-label-sm text-label-sm uppercase">ТЕХНИЧЕСКАЯ АРХИТЕКТУРА</span>
+                        <span class="px-4 py-1 border border-primary font-label-sm text-label-sm uppercase">ВИЗУАЛЬНЫЙ БУНТ</span>
+                    </div>
+                </div>
+                <div class="flex-grow min-h-[400px] relative grayscale hover:grayscale-0 transition-all duration-700 overflow-hidden">
+                    <img alt="Abstract Creative" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCx54GIihYIMRZEXig8DKqOzlwRGfF4loWryZtqY7NRVUVayYxrYF2DtC6e6HBOQkreU89O6_N0GrkD28yAoKNg4s7Uz73mlD9llC2bQzcgu7zL8r_8C8LSuoFl7TJPWFSzrlp3GSJCmqj9Lj2PSo_RMGq61IHsd5QQEI8OUtdu6OwYHvDbMsD3aDJa9668hKGV90N_y9etWlu-V9yFw_GpLzlLfVZh_M7UJWF854anHcgEYx5JTxyBpDohSFyNZgY-3bF5MFeI_gym"/>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Contact Section -->
+        <section id="contact" class="grid grid-cols-12 w-full border-b-4 border-primary bg-primary text-background">
+            <div class="col-span-12 p-margin-mobile md:p-margin-desktop">
+                <!-- Large English Header -->
+                <h2 class="font-display-lg text-display-lg uppercase mb-8 leading-none">GET IN TOUCH</h2>
+                <div class="flex flex-col md:flex-row justify-between items-baseline gap-8">
+                    <!-- Large Email Address (kept original) -->
+                    <a class="font-display-xl text-display-xl hover:line-through transition-all duration-300 break-all md:text-[140px]" href="mailto:hello@rawstudio.io">
+                        HELLO@RAW_STUDIO.IO
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Form & Details -->
+        <section class="grid grid-cols-12 w-full border-b-4 border-primary">
+            <!-- Form with Small Russian Details -->
+            <div class="col-span-12 md:col-span-7 p-margin-mobile md:p-margin-desktop border-r-0 md:border-r-4 border-primary">
+                <form class="space-y-12" onsubmit="event.preventDefault(); alert('Сообщение отправлено!');">
+                    <div class="group">
+                        <label class="font-label-bold text-label-bold uppercase block mb-4">ВАШЕ ИМЯ / АЛИАС</label>
+                        <input class="w-full bg-transparent border-t-0 border-x-0 border-b-4 border-primary focus:ring-0 focus:border-primary-fixed-dim font-body-lg text-body-lg placeholder:opacity-30 p-0 py-4 transition-all" placeholder="ПЕЧАТАЙТЕ ЗДЕСЬ..." type="text"/>
+                    </div>
+                    <div class="group">
+                        <label class="font-label-bold text-label-bold uppercase block mb-4">ЭЛЕКТРОННАЯ ПОЧТА</label>
+                        <input class="w-full bg-transparent border-t-0 border-x-0 border-b-4 border-primary focus:ring-0 focus:border-primary-fixed-dim font-body-lg text-body-lg placeholder:opacity-30 p-0 py-4 transition-all" placeholder="EMAIL@DOMAIN.COM" type="email"/>
+                    </div>
+                    <div class="group">
+                        <label class="font-label-bold text-label-bold uppercase block mb-4">МАНИФЕСТ ПРОЕКТА</label>
+                        <textarea class="w-full bg-transparent border-t-0 border-x-0 border-b-4 border-primary focus:ring-0 focus:border-primary-fixed-dim font-body-lg text-body-lg placeholder:opacity-30 p-0 py-4 transition-all resize-none" placeholder="ЧТО МЫ СТРОИМ?" rows="4"></textarea>
+                    </div>
+                    <!-- Big English Button Text -->
+                    <button class="w-full md:w-auto px-12 py-6 bg-primary text-background font-display-lg text-[32px] uppercase hover:bg-background hover:text-primary border-4 border-primary transition-all duration-300" type="submit">
+                        SEND SIGNAL
+                    </button>
+                </form>
+            </div>
+            
+            <!-- Side Info (Small Russian text) -->
+            <div class="col-span-12 md:col-span-5 flex flex-col">
+                <div class="p-margin-mobile md:p-margin-desktop border-b-4 border-primary bg-surface-container-lowest">
+                    <h3 class="font-label-bold text-label-bold uppercase mb-6">ТЕКУЩАЯ ЛОКАЦИЯ</h3>
+                    <p class="font-body-md text-body-md uppercase">BERLIN / GMT+1<br/>УДАЛЕННО ПО ВСЕМУ МИРУ</p>
+                </div>
+                <div class="p-margin-mobile md:p-margin-desktop border-b-4 border-primary">
+                    <h3 class="font-label-bold text-label-bold uppercase mb-6">ДОСТУПНОСТЬ</h3>
+                    <p class="font-body-md text-body-md uppercase">Q4 2024: ЗАНЯТ<br/>Q1 2025: ОТКРЫТ ДЛЯ ПРЕДЛОЖЕНИЙ</p>
+                </div>
+                <div class="flex-grow grayscale brightness-50 contrast-125 overflow-hidden min-h-[300px]">
+                    <img alt="Office Location" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAtr5ZeHEH1hVtFbQCNh8cTlBVI7TdFgbdsnYoOoJD7ySqUzHGne7vTR9QUhq-WlzJv3XMVrHADZISNpQISRCbABZvvyJ4sXUXj2I5ogfDFCgC7oqYT3Sl0gBtkpOeJRD7kKeCsajRsiFb4j85lbJIL5PR9mZKEhR3lUXQImwYt5uyroAcfUOj2COgmJ1FcXDrviPMUHOEAuYjOvm-XgpUaZuVFooIDGDynjbJ1iaEoH8dlr2atyni3l2Pjq-NuzTLsmPalUzLRMCyt"/>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="grid grid-cols-1 md:grid-cols-2 gap-0 w-full px-margin-desktop py-margin-desktop border-t-4 border-primary bg-background dark:bg-background">
+        <div class="flex flex-col justify-between h-full space-y-12 md:space-y-0">
+            <!-- Large English Title -->
+            <div class="font-headline-lg text-headline-lg text-primary uppercase font-bold tracking-tighter">PORTFOLIO/24</div>
+            <!-- Small Russian Copyright -->
+            <p class="font-label-sm text-label-sm uppercase text-on-surface-variant">©2024 RAW_STUDIO. ВСЕ ПРАВА ЗАЩИЩЕНЫ.</p>
+        </div>
+        <div class="flex flex-col md:items-end justify-between gap-8">
+            <div class="grid grid-cols-2 gap-8 md:flex md:justify-end md:gap-12">
+                <div class="flex flex-col gap-4">
+                    <a class="font-label-sm text-label-sm uppercase text-on-surface-variant hover:text-primary-fixed-dim transition-all invert-on-hover" href="#">INSTAGRAM</a>
+                    <a class="font-label-sm text-label-sm uppercase text-on-surface-variant hover:text-primary-fixed-dim transition-all invert-on-hover" href="#">BEHANCE</a>
+                </div>
+                <div class="flex flex-col gap-4">
+                    <a class="font-label-sm text-label-sm uppercase text-on-surface-variant hover:text-primary-fixed-dim transition-all invert-on-hover" href="#">ARE.NA</a>
+                    <a class="font-label-sm text-label-sm uppercase text-on-surface-variant hover:text-primary-fixed-dim transition-all invert-on-hover" href="#">LINKEDIN</a>
+                </div>
+            </div>
+            <!-- Small Russian Slogan -->
+            <div class="text-right">
+                <span class="font-label-bold text-label-bold text-primary">СОЗДАНО ДЛЯ ПЕРЕМЕН</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interaction Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Focus effects for contact form fields
+            const inputs = document.querySelectorAll('input, textarea');
+            inputs.forEach(input => {
+                input.addEventListener('focus', () => {
+                    input.parentElement.classList.add('bg-primary-container/10');
+                });
+                input.addEventListener('blur', () => {
+                    input.parentElement.classList.remove('bg-primary-container/10');
+                });
+            });
+
+            // Smooth parallax and mouse interaction for the interactive hero title
+            const heroTitle = document.querySelector('.interactive-tracking');
+            if (heroTitle) {
+                heroTitle.addEventListener('mousemove', (e) => {
+                    const { clientX, target } = e;
+                    const { left, width } = target.getBoundingClientRect();
+                    const x = (clientX - left) / width;
+                    target.style.letterSpacing = `${x * -0.08}em`;
+                });
+                heroTitle.addEventListener('mouseleave', (e) => {
+                    e.target.style.letterSpacing = '-0.02em';
+                });
+            }
+
+            // Project cards tilt / hover mouse interaction
+            document.querySelectorAll('.project-card').forEach(card => {
+                card.addEventListener('mousemove', (e) => {
+                    const title = card.querySelector('.project-title');
+                    const x = (e.clientX / window.innerWidth - 0.5) * 20;
+                    const y = (e.clientY / window.innerHeight - 0.5) * 20;
+                    if (title) {
+                        title.style.transform = `translate(${x}px, ${y}px)`;
+                    }
+                });
+
+                card.addEventListener('mouseleave', () => {
+                    const title = card.querySelector('.project-title');
+                    if (title) {
+                        title.style.transform = `translate(0, 0)`;
+                    }
+                });
+            });
+
+            // Smooth scrolling behavior for navigation items and indicators
+            document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            const scrollDownArrow = document.querySelector('.animate-bounce');
+            if (scrollDownArrow) {
+                scrollDownArrow.parentElement.addEventListener('click', () => {
+                    const worksSection = document.getElementById('works');
+                    if (worksSection) {
+                        worksSection.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            }
+
+            // Parallax scroll effects
+            window.addEventListener('scroll', () => {
+                const scrolled = window.pageYOffset;
+                
+                // Vertical text parallax scroll
+                const verticalText = document.querySelector('.vertical-text');
+                if (verticalText) {
+                    verticalText.style.transform = `translateY(${scrolled * 0.08}px) rotate(180deg)`;
+                }
+
+                // Project image simple parallax
+                const images = document.querySelectorAll('.project-image');
+                images.forEach(img => {
+                    const rect = img.getBoundingClientRect();
+                    if (rect.top < window.innerHeight && rect.bottom > 0) {
+                        const speed = 0.05;
+                        const yPos = -(rect.top * speed);
+                        img.style.transform = `translateY(${yPos}px) scale(1.1)`;
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

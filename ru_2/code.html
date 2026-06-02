@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&amp;family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-fixed-variant": "#3c4d00",
+                        "on-surface-variant": "#c4c9ac",
+                        "primary-fixed-dim": "#abd600",
+                        "error-container": "#93000a",
+                        "outline": "#8e9379",
+                        "background": "#131313",
+                        "surface-container-low": "#1c1b1b",
+                        "tertiary-container": "#d2e5f5",
+                        "on-secondary-fixed-variant": "#454747",
+                        "on-secondary": "#2f3131",
+                        "inverse-surface": "#e5e2e1",
+                        "surface-container-lowest": "#0e0e0e",
+                        "surface-bright": "#3a3939",
+                        "surface-variant": "#353534",
+                        "on-primary-container": "#556d00",
+                        "on-secondary-container": "#b4b5b5",
+                        "on-primary": "#283500",
+                        "on-error": "#690005",
+                        "surface": "#131313",
+                        "primary": "#ffffff",
+                        "inverse-primary": "#506600",
+                        "error": "#ffb4ab",
+                        "on-tertiary-container": "#556774",
+                        "tertiary-fixed": "#d2e5f5",
+                        "secondary-fixed-dim": "#c6c6c7",
+                        "on-primary-fixed": "#161e00",
+                        "surface-container": "#201f1f",
+                        "surface-dim": "#131313",
+                        "on-tertiary-fixed-variant": "#374956",
+                        "on-tertiary-fixed": "#0b1d29",
+                        "outline-variant": "#444933",
+                        "surface-container-highest": "#353534",
+                        "tertiary-fixed-dim": "#b6c9d8",
+                        "primary-container": "#c3f400",
+                        "on-background": "#e5e2e1",
+                        "surface-tint": "#abd600",
+                        "on-error-container": "#ffdad6",
+                        "inverse-on-surface": "#313030",
+                        "secondary": "#c6c6c7",
+                        "surface-container-high": "#2a2a2a",
+                        "on-surface": "#e5e2e1",
+                        "on-secondary-fixed": "#1a1c1c",
+                        "secondary-container": "#454747",
+                        "secondary-fixed": "#e2e2e2",
+                        "on-tertiary": "#21323e",
+                        "tertiary": "#ffffff",
+                        "primary-fixed": "#c3f400"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-mobile": "24px",
+                        "unit": "8px",
+                        "border-width-thick": "4px",
+                        "gutter": "0px",
+                        "margin-desktop": "48px",
+                        "border-width-thin": "1px"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["Syne"],
+                        "label-sm": ["Space Mono"],
+                        "body-lg": ["Space Mono"],
+                        "display-xl": ["Syne"],
+                        "headline-lg": ["Syne"],
+                        "label-bold": ["Space Mono"],
+                        "display-lg": ["Syne"],
+                        "body-md": ["Space Mono"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["32px", {"lineHeight": "36px", "fontWeight": "700"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "display-xl": ["120px", {"lineHeight": "110px", "letterSpacing": "-0.04em", "fontWeight": "800"}],
+                        "headline-lg": ["48px", {"lineHeight": "52px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                        "label-bold": ["14px", {"lineHeight": "20px", "fontWeight": "700"}],
+                        "display-lg": ["80px", {"lineHeight": "80px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 700, 'GRAD' 0, 'opsz' 48;
+        }
+        .invert-on-hover:hover {
+            filter: invert(1);
+        }
+        .stark-border-top { border-top-width: 4px; }
+        .stark-border-bottom { border-bottom-width: 4px; }
+        .stark-border-left { border-left-width: 4px; }
+        .stark-border-right { border-right-width: 4px; }
+    </style>
+</head>
+<body class="bg-background text-on-background selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopNavBar -->
+<nav class="fixed top-0 left-0 w-full flex justify-between items-center px-margin-mobile md:px-margin-desktop py-unit bg-background border-b-4 border-primary z-50">
+<div class="font-headline-lg text-headline-lg font-bold tracking-tighter text-primary">PORTFOLIO/24</div>
+<div class="hidden md:flex gap-margin-mobile items-center">
+<a class="font-label-bold text-label-bold uppercase tracking-tighter text-on-surface-variant hover:bg-primary hover:text-background transition-colors duration-200 px-2 py-1" href="#">РАБОТЫ</a>
+<a class="font-label-bold text-label-bold uppercase tracking-tighter text-on-surface-variant hover:bg-primary hover:text-background transition-colors duration-200 px-2 py-1" href="#">ОБО МНЕ</a>
+<a class="font-label-bold text-label-bold uppercase tracking-tighter text-on-surface-variant hover:bg-primary hover:text-background transition-colors duration-200 px-2 py-1" href="#">КОНТАКТЫ</a>
+<button class="bg-primary text-background font-label-bold text-label-bold px-6 py-2 border-none active:bg-primary-fixed uppercase transition-all">НАЙМ</button>
+</div>
+<div class="md:hidden">
+<span class="material-symbols-outlined text-primary cursor-pointer">menu</span>
+</div>
+</nav>
+<!-- Hero Canvas -->
+<main class="min-h-screen flex flex-col pt-24">
+<!-- Main Hero Section -->
+<section class="flex-grow grid grid-cols-1 md:grid-cols-12 gap-0 border-b-4 border-primary bg-primary-container">
+<!-- Text Content Area -->
+<div class="md:col-span-8 flex flex-col justify-center p-margin-mobile md:p-margin-desktop border-r-0 md:border-r-4 border-primary">
+<h1 class="font-display-lg md:font-display-xl text-display-lg md:text-display-xl text-on-primary-container uppercase break-words leading-none mb-12">
+                    Я СОЗДАЮ НЕЗАБЫВАЕМОЕ
+                </h1>
+<div class="max-w-2xl">
+<p class="font-body-lg text-body-lg text-on-primary-container/80 mb-8 border-l-4 border-on-primary-container pl-6 py-2">
+                        Раздвигая границы на стыке грубого брутализма и высокотехнологичного цифрового мастерства.
+                    </p>
+<div class="flex flex-wrap gap-4">
+<button class="px-8 py-4 bg-background text-primary font-label-bold text-label-bold uppercase border-2 border-background hover:bg-primary hover:text-background transition-all">
+                            СМОТРЕТЬ ПОРТФОЛИО
+                        </button>
+<button class="px-8 py-4 border-4 border-on-primary-container text-on-primary-container font-label-bold text-label-bold uppercase hover:bg-on-primary-container hover:text-primary-container transition-all">
+                            МЕТОДОЛОГИЯ
+                        </button>
+</div>
+</div>
+</div>
+<!-- Visual/Graphic Area -->
+<div class="md:col-span-4 bg-background relative overflow-hidden group">
+<img alt="Hero Visual" class="w-full h-full object-cover grayscale transition-all duration-700 group-hover:grayscale-0" data-alt="A high-contrast, avant-garde digital sculpture in a void-like environment. The object features razor-sharp metallic edges and deep shadows, illuminated by a single piercing neon green light source. The overall aesthetic is raw, technical, and brutally minimalist, perfectly aligning with a high-end neo-brutalist design portfolio. The lighting creates extreme silhouettes against a stark obsidian black background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAjHrxT9E495BCcD1bOjjGEddtvmVTu6vO0QKpMRJjIjSWBktQs_PfyH8WCjQLJHDThEjbRnBwBrlvlnH7Vcc3ksFolgaosK4jcCLEhCU1QB11VlEECqqx_4eWZ2KswVksvjaKnsLG8AGd_n3pxPZ76r-2gcnG17uPlJro6ISSZtdy1GX7i9tLcZl34izd-sIKOlMp9kpkX56OhB_T_BZfc-y4qYFt4LeaevbmqpKmLsfgzwe7fHJvime4C7B6epL_37rvlXRCQ-6j0"/>
+<div class="absolute inset-0 bg-primary-container/20 mix-blend-multiply pointer-events-none"></div>
+<div class="absolute bottom-0 left-0 p-margin-mobile md:p-margin-desktop">
+<span class="font-label-sm text-label-sm text-primary uppercase bg-background px-2 py-1">V.04 / 2024</span>
+</div>
+</div>
+</section>
+<!-- Sub-Info Row -->
+<section class="grid grid-cols-1 md:grid-cols-3 border-b-4 border-primary">
+<div class="p-margin-mobile md:p-unit border-b-4 md:border-b-0 md:border-r-4 border-primary flex items-center justify-between">
+<span class="font-label-bold text-label-bold text-primary uppercase">СТРАТЕГИЯ</span>
+<span class="material-symbols-outlined text-primary">data_exploration</span>
+</div>
+<div class="p-margin-mobile md:p-unit border-b-4 md:border-b-0 md:border-r-4 border-primary flex items-center justify-between">
+<span class="font-label-bold text-label-bold text-primary uppercase">ИНТЕРФЕЙС</span>
+<span class="material-symbols-outlined text-primary">grid_view</span>
+</div>
+<div class="p-margin-mobile md:p-unit flex items-center justify-between">
+<span class="font-label-bold text-label-bold text-primary uppercase">ОПЫТ</span>
+<span class="material-symbols-outlined text-primary">bolt</span>
+</div>
+</section>
+<!-- Scroll Indicator Section -->
+<div class="flex justify-between items-end p-margin-mobile md:p-margin-desktop bg-background">
+<div class="hidden md:block">
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase max-w-[200px]">
+                    ПРОКРУТИТЕ, ЧТОБЫ ИССЛЕДОВАТЬ ИЗМЕРЕНИЕ ВЫСОКОЭФФЕКТИВНОЙ ЭСТЕТИКИ.
+                </p>
+</div>
+<div class="w-24 h-24 border-4 border-primary flex items-center justify-center cursor-pointer group hover:bg-primary transition-all duration-300">
+<span class="material-symbols-outlined text-primary group-hover:text-background text-[48px] animate-bounce" style="font-variation-settings: 'wght' 700;">
+                    arrow_downward
+                </span>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="grid grid-cols-1 md:grid-cols-2 gap-0 w-full px-margin-mobile md:px-margin-desktop py-margin-desktop border-t-4 border-primary bg-background">
+<div class="mb-margin-mobile md:mb-0">
+<div class="font-headline-lg text-headline-lg text-primary font-bold tracking-tighter mb-4">RAW_STUDIO</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant">©2024 RAW_STUDIO. ВСЕ ПРАВА ЗАЩИЩЕНЫ.</p>
+</div>
+<div class="flex flex-col md:items-end gap-2">
+<div class="flex gap-margin-mobile mb-4">
+<a class="font-label-sm text-label-sm text-on-surface-variant uppercase hover:text-primary-fixed-dim transition-all" href="#">INSTAGRAM</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant uppercase hover:text-primary-fixed-dim transition-all" href="#">BEHANCE</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant uppercase hover:text-primary-fixed-dim transition-all" href="#">ARE.NA</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant uppercase hover:text-primary-fixed-dim transition-all" href="#">LINKEDIN</a>
+</div>
+<div class="text-right">
+<span class="font-label-bold text-label-bold text-primary">СОЗДАНО ДЛЯ ПЕРЕМЕН</span>
+</div>
+</div>
+</footer>
+<script>
+        // Smooth scroll interaction for the bold arrow
+        document.querySelector('.animate-bounce').parentElement.addEventListener('click', () => {
+            window.scrollTo({
+                top: window.innerHeight,
+                behavior: 'smooth'
+            });
+        });
+
+        // Hover effect for text tracking
+        const heroTitle = document.querySelector('h1');
+        heroTitle.addEventListener('mousemove', (e) => {
+            const { clientX, target } = e;
+            const { left, width } = target.getBoundingClientRect();
+            const x = (clientX - left) / width;
+            target.style.letterSpacing = `${x * -0.08}em`;
+        });
+        heroTitle.addEventListener('mouseleave', (e) => {
+            e.target.style.letterSpacing = '-0.02em';
+        });
+    </script>
+</body></html>

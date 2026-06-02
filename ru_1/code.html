@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&amp;family=Space+Mono:wght@400;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@100..900&amp;family=Syne:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 48;
+        }
+        .text-outline {
+            -webkit-text-stroke: 1px #ffffff;
+            color: transparent;
+        }
+        .project-card:hover .project-image {
+            filter: grayscale(0%) scale(1.05);
+        }
+        .project-card:hover .project-title {
+            color: #c3f400; /* Primary Fixed / Neon Green */
+            transform: translateX(10px);
+        }
+        body {
+            background-color: #131313;
+            cursor: crosshair;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-primary-fixed-variant": "#3c4d00",
+                      "on-surface-variant": "#c4c9ac",
+                      "primary-fixed-dim": "#abd600",
+                      "error-container": "#93000a",
+                      "outline": "#8e9379",
+                      "background": "#131313",
+                      "surface-container-low": "#1c1b1b",
+                      "tertiary-container": "#d2e5f5",
+                      "on-secondary-fixed-variant": "#454747",
+                      "on-secondary": "#2f3131",
+                      "inverse-surface": "#e5e2e1",
+                      "surface-container-lowest": "#0e0e0e",
+                      "surface-bright": "#3a3939",
+                      "surface-variant": "#353534",
+                      "on-primary-container": "#556d00",
+                      "on-secondary-container": "#b4b5b5",
+                      "on-primary": "#283500",
+                      "on-error": "#690005",
+                      "surface": "#131313",
+                      "primary": "#ffffff",
+                      "inverse-primary": "#506600",
+                      "error": "#ffb4ab",
+                      "on-tertiary-container": "#556774",
+                      "tertiary-fixed": "#d2e5f5",
+                      "secondary-fixed-dim": "#c6c6c7",
+                      "on-primary-fixed": "#161e00",
+                      "surface-container": "#201f1f",
+                      "surface-dim": "#131313",
+                      "on-tertiary-fixed-variant": "#374956",
+                      "on-tertiary-fixed": "#0b1d29",
+                      "outline-variant": "#444933",
+                      "surface-container-highest": "#353534",
+                      "tertiary-fixed-dim": "#b6c9d8",
+                      "primary-container": "#c3f400",
+                      "on-background": "#e5e2e1",
+                      "surface-tint": "#abd600",
+                      "on-error-container": "#ffdad6",
+                      "inverse-on-surface": "#313030",
+                      "secondary": "#c6c6c7",
+                      "surface-container-high": "#2a2a2a",
+                      "on-surface": "#e5e2e1",
+                      "on-secondary-fixed": "#1a1c1c",
+                      "secondary-container": "#454747",
+                      "secondary-fixed": "#e2e2e2",
+                      "on-tertiary": "#21323e",
+                      "tertiary": "#ffffff",
+                      "primary-fixed": "#c3f400"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "margin-mobile": "24px",
+                      "unit": "8px",
+                      "border-width-thick": "4px",
+                      "gutter": "0px",
+                      "margin-desktop": "48px",
+                      "border-width-thin": "1px"
+              },
+              "fontFamily": {
+                      "headline-lg-mobile": ["Syne"],
+                      "label-sm": ["Space Mono"],
+                      "body-lg": ["Space Mono"],
+                      "display-xl": ["Syne"],
+                      "headline-lg": ["Syne"],
+                      "label-bold": ["Space Mono"],
+                      "display-lg": ["Syne"],
+                      "body-md": ["Space Mono"]
+              },
+              "fontSize": {
+                      "headline-lg-mobile": ["32px", {"lineHeight": "36px", "fontWeight": "700"}],
+                      "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+                      "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                      "display-xl": ["120px", {"lineHeight": "110px", "letterSpacing": "-0.04em", "fontWeight": "800"}],
+                      "headline-lg": ["48px", {"lineHeight": "52px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                      "label-bold": ["14px", {"lineHeight": "20px", "fontWeight": "700"}],
+                      "display-lg": ["80px", {"lineHeight": "80px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+              }
+            },
+          },
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopNavBar -->
+<nav class="docked full-width top-0 flex justify-between items-center w-full px-margin-desktop py-unit max-w-full bg-background dark:bg-background border-b-4 border-primary dark:border-primary fixed z-50">
+<div class="font-headline-lg text-headline-lg font-bold tracking-tighter text-primary dark:text-primary">
+            PORTFOLIO/24
+        </div>
+<div class="hidden md:flex items-center gap-8">
+<a class="font-label-bold text-label-bold uppercase tracking-tighter text-primary dark:text-primary border-b-2 border-primary" href="#">WORKS</a>
+<a class="font-label-bold text-label-bold uppercase tracking-tighter text-on-surface-variant dark:text-on-surface-variant hover:bg-primary hover:text-background transition-colors duration-200" href="#">ABOUT</a>
+<a class="font-label-bold text-label-bold uppercase tracking-tighter text-on-surface-variant dark:text-on-surface-variant hover:bg-primary hover:text-background transition-colors duration-200" href="#">CONTACT</a>
+</div>
+<button class="bg-primary-container text-on-primary-container font-label-bold text-label-bold px-6 py-2 uppercase tracking-tighter hover:bg-primary hover:text-background transition-colors duration-200">
+            HIRE
+        </button>
+</nav>
+<main class="pt-24 min-h-screen">
+<!-- Hero Section -->
+<section class="px-margin-desktop py-margin-desktop border-b-4 border-primary grid grid-cols-12 gap-gutter">
+<div class="col-span-12 md:col-span-8">
+<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg uppercase mb-4">ИЗБРАННЫЕ<br/>РАБОТЫ_</h1>
+</div>
+<div class="col-span-12 md:col-span-4 flex items-end justify-end">
+<p class="font-body-md text-body-md text-on-surface-variant max-w-xs text-right">
+                    ЭКСПЕРИМЕНТАЛЬНОЕ ЦИФРОВОЕ ИСКУССТВО НА ПЕРЕСЕЧЕНИИ ГРУБОГО БРУТАЛИЗМА И ВЫСОКОЙ МОДЫ.
+                </p>
+</div>
+</section>
+<!-- Works Grid -->
+<section class="grid grid-cols-1 md:grid-cols-12 gap-gutter border-b-4 border-primary">
+<!-- Project 1: GLITCH AESTHETIC -->
+<div class="col-span-12 border-b-4 border-primary md:border-b-0 md:border-r-4 border-primary project-card relative overflow-hidden group cursor-pointer">
+<div class="grid grid-cols-1 md:grid-cols-12 h-full">
+<div class="col-span-12 md:col-span-7 relative overflow-hidden bg-surface-container-highest">
+<img class="project-image w-full h-[614px] object-cover grayscale transition-all duration-500" data-alt="A complex digital artwork featuring intense glitch patterns and distorted textures in an obsidian black and neon green color palette. The composition uses harsh geometric shapes and digital artifacts to create a high-contrast, brutalist aesthetic. The lighting is cold and synthetic, emphasizing the raw technicality of the piece in a high-fashion editorial style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAbtSRb50wogzcAgVzgTspaebWDnqsgr4S6ZSut0y7v8NIG5tIufwZDbokaoYLsPJB1hR17ubeMkyGqXQGKnxKgg4t-i1NNidjOWIYDucJFcbEt4CxfQT0SmvY736qLXpRhY2LOsDaF0bqMeav6yLTpYyHnsi-cJdEHxgbAjMkQ8jQOMrvhJRJGy2zA8tZBhNprsj9UB9C53q3CpblIjFBp2WblNqtgaj2jAvPz7TzeQ6gDMgy-nd9yzJSscOcF7h6kQUP7wO5s8iS0"/>
+</div>
+<div class="col-span-12 md:col-span-5 p-margin-desktop flex flex-col justify-between items-start bg-background">
+<div>
+<span class="font-label-sm text-label-sm text-primary-fixed mb-4 block">01 / BRANDING</span>
+<h2 class="project-title font-display-xl text-[60px] md:text-display-xl uppercase transition-transform duration-300 -ml-16 md:-ml-32 z-10 relative text-primary">
+                                GLITCH AESTHETIC
+                            </h2>
+</div>
+<div class="flex items-center gap-4 group/btn">
+<span class="font-label-bold text-label-bold">СМОТРЕТЬ КЕЙС</span>
+<span class="material-symbols-outlined text-primary-fixed group-hover/btn:translate-x-2 transition-transform">arrow_forward</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Project 2: RAW BRUTALISM -->
+<div class="col-span-12 border-b-4 border-primary md:border-b-0 project-card relative overflow-hidden group cursor-pointer">
+<div class="grid grid-cols-1 md:grid-cols-12 h-full">
+<div class="col-span-12 md:col-span-5 p-margin-desktop flex flex-col justify-between items-end bg-background order-2 md:order-1 border-r-0 md:border-r-4 border-primary">
+<div class="text-right w-full">
+<span class="font-label-sm text-label-sm text-primary-fixed mb-4 block">02 / WEB DESIGN</span>
+<h2 class="project-title font-display-xl text-[60px] md:text-display-xl uppercase transition-transform duration-300 -mr-16 md:-mr-48 z-10 relative text-primary">
+                                RAW BRUTALISM
+                            </h2>
+</div>
+<div class="flex items-center gap-4 group/btn">
+<span class="material-symbols-outlined text-primary-fixed group-hover/btn:-translate-x-2 transition-transform">arrow_back</span>
+<span class="font-label-bold text-label-bold">ИССЛЕДОВАТЬ ПРОЕКТ</span>
+</div>
+</div>
+<div class="col-span-12 md:col-span-7 relative overflow-hidden order-1 md:order-2 bg-surface-container-highest">
+<img class="project-image w-full h-[614px] object-cover grayscale transition-all duration-500" data-alt="A stark architectural photograph of a massive concrete brutalist structure with sharp angles and heavy shadows. The image is rendered in high contrast with deep blacks and bright highlights, emphasizing the raw texture of the concrete. Subtle neon green light leaks suggest a modern, digital intervention. The overall mood is imposing, structured, and avant-garde." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAvXS2-bCEs6CjUVPGBvBG4pP6zz278ELvOQdNCpCnkWLpTsqm9c_2umF5A5QKQz1bhT_2U-ytSqPj5rXWniYlCE_vgzmz6nNwtABkT8ZmhZdmwatjA3IBQ6DMpclhiEIqpz99YMUynLa7iMD2BUeKRIvd5Xlw1ttRfZ1MSGVWwBLV40qzvbysXcKM2ygaitf4rSV_M8lrWXqWLiAH2RWyUbAoog8o0LOiWs0ZyV2xY_ARLaYUadw1IX1zsIdn_8-Ol8gUvKhHklEff"/>
+</div>
+</div>
+</div>
+<!-- Project 3: NEON OVERLOAD -->
+<div class="col-span-12 project-card relative overflow-hidden group cursor-pointer border-t-4 border-primary">
+<div class="grid grid-cols-1 md:grid-cols-12 h-full">
+<div class="col-span-12 md:col-span-8 relative overflow-hidden bg-surface-container-highest">
+<img class="project-image w-full h-[716px] object-cover grayscale transition-all duration-500" data-alt="A high-fashion editorial portrait of a model partially obscured by vibrant neon green laser lights in a pitch-black studio. The lighting creates a sense of depth and digital motion, with sharp lines of light cutting through the space. The aesthetic is edgy and experimental, blending human elements with raw technological aesthetics in a dark, high-contrast environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB5gXNBtLvgOGP6f7tgm6z1xnbOPyIKPOkG49Nd9drVvYqaV_AB_Cf4DreqCNOQEOmYRfMkDSMPZQ6jjDRTDo3r8b3cw-n578xr8q6ST2vTIY2VbRAa-dgxmfnQWJLPg9ojoYAlB7UWSQx-D1V58EaIfe-LOXs9RIcZmlKid6Bt36oXCcztqmwWTmCeY5SLijilocydRWqe_M-Q-KSqLmO4op8a0GyfeqcmJvrU342NVy54W90pgDfpxoRdaUVzvIPSsFqb2ao9iksE"/>
+</div>
+<div class="col-span-12 md:col-span-4 p-margin-desktop flex flex-col justify-center items-start bg-background border-l-0 md:border-l-4 border-primary">
+<div>
+<span class="font-label-sm text-label-sm text-primary-fixed mb-4 block">03 / DIRECTION</span>
+<h2 class="project-title font-display-xl text-[60px] md:text-headline-lg uppercase transition-transform duration-300 z-10 relative text-primary mb-8">
+                                NEON OVERLOAD
+                            </h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-12">
+                                ГЛУБОКОЕ ПОГРУЖЕНИЕ В ЦВЕТОВУЮ НАСЫЩЕННОСТЬ И КИНЕТИЧЕСКУЮ ТИПОГРАФИКУ В ВИРТУАЛЬНЫХ ПРОСТРАНСТВАХ.
+                            </p>
+</div>
+<button class="w-full py-4 border-2 border-primary hover:bg-primary hover:text-background transition-all font-label-bold text-label-bold">
+                            ЗАПУСТИТЬ АРХИВ
+                        </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Manifest Section -->
+<section class="px-margin-desktop py-margin-desktop bg-primary-fixed text-on-primary-fixed grid grid-cols-12 gap-gutter">
+<div class="col-span-12 md:col-span-6">
+<h3 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg uppercase tracking-tighter mb-8">МЫ ОТВЕРГАЕМ МЯГКОСТЬ.</h3>
+</div>
+<div class="col-span-12 md:col-span-6 flex flex-col justify-end">
+<div class="space-y-4 font-body-lg text-body-lg">
+<div class="flex justify-between border-b border-on-primary-fixed pb-2">
+<span>ТОЧНОСТЬ</span>
+<span>[100%]</span>
+</div>
+<div class="flex justify-between border-b border-on-primary-fixed pb-2">
+<span>ГРУБОСТЬ</span>
+<span>[ИСТИНА]</span>
+</div>
+<div class="flex justify-between border-b border-on-primary-fixed pb-2">
+<span>КОНТРАСТ</span>
+<span>МАКСИМУМ</span>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="grid grid-cols-1 md:grid-cols-2 gap-0 w-full px-margin-desktop py-margin-desktop border-t-4 border-primary bg-background dark:bg-background">
+<div class="flex flex-col justify-between mb-12 md:mb-0">
+<div class="font-headline-lg text-headline-lg text-primary tracking-tighter font-bold">
+                PORTFOLIO/24
+            </div>
+<div class="font-label-sm text-label-sm uppercase text-on-surface-variant mt-8">
+                ©2024 RAW_STUDIO. ALL RIGHTS RESERVED.
+            </div>
+</div>
+<div class="grid grid-cols-2 gap-8 h-full">
+<div class="flex flex-col gap-4">
+<a class="font-label-sm text-label-sm uppercase text-on-surface-variant hover:text-primary-fixed-dim transition-all" href="#">INSTAGRAM</a>
+<a class="font-label-sm text-label-sm uppercase text-on-surface-variant hover:text-primary-fixed-dim transition-all" href="#">BEHANCE</a>
+</div>
+<div class="flex flex-col gap-4">
+<a class="font-label-sm text-label-sm uppercase text-on-surface-variant hover:text-primary-fixed-dim transition-all" href="#">ARE.NA</a>
+<a class="font-label-sm text-label-sm uppercase text-on-surface-variant hover:text-primary-fixed-dim transition-all" href="#">LINKEDIN</a>
+</div>
+</div>
+</footer>
+<script>
+        // Micro-interaction for hover states
+        document.querySelectorAll('.project-card').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const title = card.querySelector('.project-title');
+                const x = (e.clientX / window.innerWidth - 0.5) * 20;
+                const y = (e.clientY / window.innerHeight - 0.5) * 20;
+                if(title) {
+                    title.style.transform = `translate(${x}px, ${y}px)`;
+                }
+            });
+
+            card.addEventListener('mouseleave', () => {
+                const title = card.querySelector('.project-title');
+                if(title) {
+                    title.style.transform = `translate(0, 0)`;
+                }
+            });
+        });
+
+        // Simple parallax for images on scroll
+        window.addEventListener('scroll', () => {
+            const images = document.querySelectorAll('.project-image');
+            images.forEach(img => {
+                const rect = img.getBoundingClientRect();
+                if(rect.top < window.innerHeight && rect.bottom > 0) {
+                    const speed = 0.05;
+                    const yPos = -(rect.top * speed);
+                    img.style.transform = `translateY(${yPos}px) scale(1.1)`;
+                }
+            });
+        });
+    </script>
+</body></html>
